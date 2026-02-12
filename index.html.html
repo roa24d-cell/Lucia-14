@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Lucía 💚</title>
+
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #00c853, #b2ff59);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    animation: aparecer 1s ease;
+}
+
+h1 {
+    color: #00c853;
+}
+
+.buttons {
+    margin-top: 20px;
+    position: relative;
+    height: 60px;
+}
+
+button {
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#si {
+    background: #00c853;
+    left: 30px;
+    position: absolute;
+}
+
+#no {
+    background: #999;
+    right: 30px;
+    position: absolute;
+}
+
+.galeria {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    overflow-x: auto;
+}
+
+.galeria img {
+    width: 120px;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 22px;
+    animation: flotar 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes flotar {
+    from {transform: translateY(0) scale(1);}
+    to {transform: translateY(-110vh) scale(1.5); opacity:0;}
+}
+
+@keyframes aparecer {
+    from {opacity:0; transform: scale(0.7);}
+    to {opacity:1; transform: scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musica" loop>
+    <source src="viento.jpeg" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <h1>Lucía 💚</h1>
+
+    <p>
+        Diría ¿te gustaría?, pero no hace falta... <b>14 de febrero</b> conmigo, mi bollito hermoso ❤️ 
+        
+    </p>
+
+    <div class="galeria">
+        <img src="C:\Users\Manu\Downloads\mmti\foto1.jpeg.jpeg">
+        <img src="C:\Users\Manu\Downloads\mmti\foto2.jpeg.jpeg">
+        <img src="C:\Users\Manu\Downloads\mmti\foto3.jpeg.jpeg">
+    </div>
+
+    <div class="buttons">
+        <button id="si" onclick="acepta()">Esapto mi dueño, novio 💚</button>
+        <button id="no" onmouseover="mover()">No </button>
+    </div>
+</div>
+
+<script>
+function acepta(){
+    navigator.vibrate(200);
+    explosion();
+    alert("T amooo ❤️ Estoy deseando ver a mi linda noviaa mm 🥰");
+}
+
+function mover(){
+    const btn = document.getElementById("no");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+}
+
+function crearCorazon(){
+    const h = document.createElement("div");
+    h.className = "floating-heart";
+    h.innerHTML = "💚";
+    h.style.left = Math.random()*100 + "vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+}
+
+setInterval(crearCorazon,300);
+
+function explosion(){
+    for(let i=0;i<40;i++){
+        crearCorazon();
+    }
+}
+</script>
+
+</body>
+</html>
